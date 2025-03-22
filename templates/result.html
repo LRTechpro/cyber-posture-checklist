@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Results</title>
+    <title>Checklist Results</title>
 </head>
 <body>
     <h1>Checklist Results</h1>
     <p>Your Score: {{ score }} out of {{ total }}</p>
-    <p>Cyber Risk Level: <strong>{{ level }}</strong></p>
+    <p><strong>Cyber Risk Level:</strong> {{ level }}</p>
+
+    <h2>What This Means for Your Organization</h2>
+    <p>Your score reflects how prepared your mental health organization is to protect sensitive client data, maintain service continuity, and stay aligned with HIPAA and ethical standards.</p>
+
+    <ul>
+        <li><strong>16–18 (Low Risk):</strong> Excellent! You’ve built strong practices around confidentiality, incident response, and operational continuity. Keep training your team and testing your systems regularly.</li>
+        <li><strong>10–15 (Moderate Risk):</strong> You're on the right path, but there are gaps to address—like formalizing policies, backup validation, or staff awareness—to ensure smooth, secure care delivery.</li>
+        <li><strong>Below 10 (High Risk):</strong> High vulnerability. Consider addressing cybersecurity, business continuity, and HIPAA-readiness together. Improving these areas strengthens client trust and ethical resilience.</li>
+    </ul>
 
     <form method="POST" action="/download">
         {% for question in questions %}
@@ -14,10 +23,12 @@
         {% endfor %}
         <button type="submit">Download PDF Report</button>
     </form>
+
     <br>
     <a href="/">Start Over</a>
 </body>
 </html>
+
 <!-- Placeholder for result.html -->
 <h2>Interpretation</h2>
 <p>Your score reflects how well-prepared your organization is to protect sensitive client data, continue operations during a disruption, and comply with cybersecurity best practices relevant to the mental health field.</p>
