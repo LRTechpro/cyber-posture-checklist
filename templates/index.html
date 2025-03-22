@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cyber Posture Checklist</title>
+</head>
+<body>
+    <h1>Cyber Posture & Business Continuity Checklist</h1>
+    <form method="POST">
+        {% for question in questions %}
+            <p>{{ loop.index }}. {{ question }}</p>
+            <label><input type="radio" name="{{ question }}" value="yes" required> Yes</label>
+            <label><input type="radio" name="{{ question }}" value="no"> No</label>
+            <hr>
+        {% endfor %}
+
+        <p>Email Report To (optional):</p>
+        <input type="email" name="email" placeholder="you@example.com"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
 <!-- Placeholder for index.html -->
