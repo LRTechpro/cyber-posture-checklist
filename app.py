@@ -7,25 +7,37 @@ app = Flask(__name__)
 
 # ✅ Add the checklist questions
 questions = [
-    "Do you have recent backups of your critical data?",
-    "Are your backups stored off-site or in the cloud?",
-    "Are backups tested regularly to ensure they work?",
-    "Do you use strong, unique passwords for all accounts?",
-    "Is multi-factor authentication (MFA) enabled for key systems?",
-    "Are inactive or former user accounts regularly removed?",
-    "Do you have a basic incident response plan in writing?",
-    "Have key team members been briefed on what to do during a cyber incident?",
-    "Do you know who to contact for IT or cybersecurity support during a crisis?",
-    "Are your devices protected with up-to-date antivirus or endpoint protection?",
-    "Is your Wi-Fi network secured with a strong password and encryption (WPA2 or WPA3)?",
-    "Are critical software and systems kept up to date with patches?",
-    "Is there a contact list of key personnel and emergency contacts?",
-    "Do you have a plan to keep services running if your main office/location is unavailable?",
-    "Are responsibilities documented for who does what during a crisis?",
-    "Have team members received any cybersecurity awareness training?",
-    "Do employees know how to recognize phishing emails or suspicious links?",
-    "Is there a point person or resource for reporting suspicious activity?"
+    # Data Protection & Confidentiality
+    "Do you regularly back up client records and scheduling data?",
+    "Are backups stored in a secure, HIPAA-compliant location?",
+    "Are backups tested regularly to ensure they can be restored?",
+
+    # Access Control
+    "Are strong passwords required for all systems accessing client data?",
+    "Is multi-factor authentication (MFA) used for systems like EHRs or cloud storage?",
+    "Are accounts for former staff disabled or removed promptly?",
+
+    # Incident Response Readiness
+    "Do you have a written incident response plan in place (e.g., for ransomware or data breaches)?",
+    "Have staff been briefed on what to do in case of a data breach?",
+    "Do you know who to contact if there's a cybersecurity incident affecting client care?",
+
+    # System Security
+    "Are staff computers and mobile devices protected with up-to-date security software?",
+    "Is your Wi-Fi secured with strong encryption (WPA2 or WPA3)?",
+    "Is your mental health EHR or client management software updated regularly?",
+
+    # Continuity of Care Planning
+    "Do you have a way to maintain access to key client info during an outage?",
+    "Is there a secure contact list of staff and emergency contacts available offline?",
+    "Have roles and responsibilities been defined for crisis situations?",
+
+    # Staff Training & Awareness
+    "Have staff received cybersecurity and HIPAA compliance training in the last year?",
+    "Are staff trained to recognize phishing attempts or social engineering?",
+    "Is there a clear way for staff to report suspicious emails or activity?"
 ]
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
