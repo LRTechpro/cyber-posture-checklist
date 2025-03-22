@@ -44,5 +44,28 @@ def index():
 
     return render_template('index.html', questions=questions)
 
+@app.route('/download', methods=['POST'])
+def download():
+    answers = request.form
+    score = sum(1 for q in questions if answers.get(q) == 'yes')
+
+    if score >= 16:
+        level = "LOW – Good posture and planning!"
+    elif score >= 10:
+        level = "MODERATE – Some gaps to close."
+    else:
+        level = "HIGH – Needs immediate attention!"
+
+    rendered = render_template("pdf_template.html", answers=answers, questions=questions, score=score, level=level)
+    
+    from io import BytesIO
+    from xhtml2pdf import pisa
+    pdf = BytesIO()
+    pisa.CreatePDF(rendered, dest=pdf)
+
+    response = make_response(pdf.getvalue())
+    response.headers['Content-Type'] = 'application/pdf'
+    response.headers['Content-Disposition'] = 'attachment; filename=cyber_posture_report.pdf'
+    return response
 
 
