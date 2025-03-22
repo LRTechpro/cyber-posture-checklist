@@ -1,1 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+</head>
+<body>
+    <h1>Checklist Results</h1>
+    <p>Your Score: {{ score }} out of {{ total }}</p>
+    <p>Cyber Risk Level: <strong>{{ level }}</strong></p>
+
+    <form method="POST" action="/download">
+        {% for question in questions %}
+            <input type="hidden" name="{{ question }}" value="{{ answers.get(question) }}">
+        {% endfor %}
+        <button type="submit">Download PDF Report</button>
+    </form>
+    <br>
+    <a href="/">Start Over</a>
+</body>
+</html>
 <!-- Placeholder for result.html -->
