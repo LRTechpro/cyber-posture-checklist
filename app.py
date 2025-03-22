@@ -29,6 +29,20 @@ questions = [
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    if request.method == 'POST':
+        answers = request.form
+        score = sum(1 for q in questions if answers.get(q) == 'yes')
+
+        if score >= 16:
+            level = "LOW – Good posture and planning!"
+        elif score >= 10:
+            level = "MODERATE – Some gaps to close."
+        else:
+            level = "HIGH – Needs immediate attention!"
+
+        return render_template('result.html', score=score, total=len(questions), level=level, answers=answers, questions=questions)
+
     return render_template('index.html', questions=questions)
+
 
 
