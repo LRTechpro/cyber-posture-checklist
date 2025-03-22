@@ -1,3 +1,4 @@
 Flask
 Flask-Mail
 xhtml2pdf
+gunicorn
